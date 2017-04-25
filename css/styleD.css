@@ -30,8 +30,7 @@ body{
 	
 }
 #text-wrapper h1{
-	margin: 175px;
-	text-align: center;
+
 }
 #text-wrapper{
 
@@ -41,24 +40,30 @@ body{
 	color: #000;
 	margin: 40px;
 }
-#welcome-wrapper{
-	background-color: white;
-	color: black;
-	padding: 20px;
+#welcome{
+	background-color: black;
+	
+	color: #edeef2;
+	padding: 200px;
+	text-decoration: bold;
+	font-size: 3em;
+	
+
+	
 }
-#welcome-wrapper .welcome{
+#about{
 	background-color: black;
 	color: white;
-	padding: 50px;
+	font-size: 4em;
+padding: 20px;
+
 }
-#welcome-wrapper .worked-with{
-	background-color: black;
-	color: white;
-	padding: 50px;
-}
-.section-wrapper-last ul
+section ul
 {
 	list-style-type: none;
+}
+section li{
+	margin: 10px;
 }
 /* Dropdown Button */
 .dropbtn {
@@ -129,8 +134,20 @@ body{
 	padding-bottom: 20px;
 }
 .content{
+	
 	text-align: center;
 	margin-top: 20px;
 	padding-top: 80px;
 	padding-bottom: 100px;
+	border:1px solid #ccc;
+
+ }
+.content section
+{
+	background-color: #f8f8f8;
+	margin:40px;
+	padding:100px;
+	background-color: rgba(250, 250, 250, .95);
+	font-size: 1.5em;
+
 }

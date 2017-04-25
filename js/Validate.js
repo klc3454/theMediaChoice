@@ -12,15 +12,15 @@ function validateForm() {
     let flagPass = true;
     
     
-    if (_firstName  == "") {
+    if (_firstName  == "" || _firstName.includes(";") || _firstName.toUpperCase().includes(" TABLE ") || _firstName.includes("--"))  {
     	document.getElementById("FirstName").style.backgroundColor="red";
     	flagFirst = false;
     }
-    if (_lastName == "") {
+    if (_lastName == "" || _lastName.includes(";") || _lastName.toUpperCase().includes(" TABLE ") || _lastName.includes("--")) {
     	document.getElementById("LastName").style.backgroundColor="red";
     	flagLast = false;
     }
-    if (_email == "" || (!emailRegex.test(_email))) {
+    if (_email == "" || (!emailRegex.test(_email)) || _email.includes(";") || _email.toUpperCase().includes(" TABLE ") || _email.includes("--")) {
     	document.getElementById("Email").style.backgroundColor="red";;
     	flagEmail = false;
     }
@@ -33,6 +33,43 @@ function validateForm() {
     	alert("A password must contain: An Uppercase Letter, a lowercase letter, be at least 6 in length.");
     	return false; 
     } else if(!flagFirst || !flagLast || !flagEmail || !flagPass) {
+    	alert("Please fill out all fields.");
+    	return false; 
+    } else {
+    	return true;
+    }
+}
+
+function validateForm2() {
+    let emailRegex = /\S+@\S+.\S+/;
+    let _firstName = document.forms["contactForm"]["FirstName"].value;
+    let _lastName = document.forms["contactForm"]["LastName"].value;
+    let _email = document.forms["contactForm"]["Email"].value;
+    let _message = document.forms["contactForm"]["Message"].value;
+    let flagFirst = true;
+    let flagLast = true;
+    let flagEmail = true;
+    let flagMessage = true;
+    
+    
+    if (_firstName  == "" || _firstName.includes(";") || _firstName.toUpperCase().includes(" TABLE ") || _firstName.includes("--"))  {
+    	document.getElementById("FirstName").style.backgroundColor="red";
+    	flagFirst = false;
+    }
+    if (_lastName == "" || _lastName.includes(";") || _lastName.toUpperCase().includes(" TABLE ") || _lastName.includes("--")) {
+    	document.getElementById("LastName").style.backgroundColor="red";
+    	flagLast = false;
+    }
+    if (_email == "" || (!emailRegex.test(_email)) || _email.includes(";") || _email.toUpperCase().includes(" TABLE ") || _email.includes("--")) {
+    	document.getElementById("Email").style.backgroundColor="red";;
+    	flagEmail = false;
+    }
+    if (_message == "" || (_message.toUpperCase().includes(" TABLE ") && _message.includes(";"))) {
+        document.getElementById("Message").style.backgroundColor="red";
+    	flagMessage = false;
+    }
+    
+    if(!flagFirst || !flagLast || !flagEmail || !flagMessage ) {
     	alert("Please fill out all fields.");
     	return false; 
     } else {
@@ -60,5 +97,26 @@ function clearWarning() {
     }
     if (passRegex.test(_pass)) {
         document.getElementById("Password").style.backgroundColor="transparent";
+    }
+}  
+
+function clearWarning2() {
+    let emailRegex = /\S+@\S+.\S+/;
+    let _firstName = document.forms["contactForm"]["FirstName"].value;
+    let _lastName = document.forms["contactForm"]["LastName"].value;
+    let _email = document.forms["contactForm"]["Email"].value;
+    let _message = document.forms["contactForm"]["Message"].value;  
+    
+    if (_firstName  != "") {
+    	document.getElementById("FirstName").style.backgroundColor="transparent";
+    }
+    if (_lastName != "") {
+    	document.getElementById("LastName").style.backgroundColor="transparent";
+    }
+    if (emailRegex.test(_email)) {
+    	document.getElementById("Email").style.backgroundColor="transparent";;
+    }
+    if (_message != "") {
+        document.getElementById("Message").style.backgroundColor="transparent";
     }
 }  
